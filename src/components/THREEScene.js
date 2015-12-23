@@ -6,6 +6,7 @@ var warning = require('fbjs/lib/warning');
 var THREE = require('three');
 var THREEContainerMixin = require('../mixins/THREEContainerMixin');
 var THREEObject3DMixin = require('../mixins/THREEObject3DMixin');
+var THREEVREffect = require('./objects/THREEVREffect');
 
 var ReactBrowserEventEmitter = require('react/lib/ReactBrowserEventEmitter');
 var putListener = ReactBrowserEventEmitter.putListener;
@@ -250,7 +251,8 @@ var THREEScene = React.createClass({
     },
 
     renderScene() {
-        this._THREErenderer.render(this._THREEObject3D, this._THREEcamera);
+        // this._THREErenderer.render(this._THREEObject3D, this._THREEcamera);
+        THREEVREffect([ this._THREErenderer ]).render(this._THREEObject3D, this._THREEcamera);
     },
 
     render() {
